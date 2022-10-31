@@ -29,9 +29,10 @@ public class controller {
         byte[] masukkanfoto = F.getBytes();
         String base64image = Base64.encodeBase64String(masukkanfoto);
         String foto ="data:image/png;base64,".concat(base64image);      
-        
-        String a;        a = "Nama Lengkap  : ";
-        String b;        b = "Tanggal Lahir : ";
+        String a;        
+            a = "Nama Lengkap  : ";
+        String b;        
+            b = "Tanggal Lahir : ";
         
         modelMap.addAttribute("inama", a + N);
         modelMap.addAttribute("itgl", b + T);
