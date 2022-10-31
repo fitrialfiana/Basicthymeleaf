@@ -5,31 +5,31 @@
 package ws.b.takehome1;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
  * @author lenovo
  */
 @Controller
-public class controller {
+public class controller { 
     
-    @RequestMapping("/data")
-    //@ResponseBody
-    
+    @RequestMapping(value = "/data", method = RequestMethod.POST)
     public String getData (@RequestParam (value = "varnama") String N,
                         @RequestParam (value = "vartgl") String T,
-                        @RequestParam (value = "varfoto") Object F,
-                            Model model){
-        model.addAttribute("inama", N);
-        model.addAttribute("itgl", T);
-        model.addAttribute("ifoto", F);
-                
-        //return "Welcome " +N +T;
+                        @RequestParam (value = "varfoto") MultipartFile F,
+                        ModelMap modelMap){ 
+        
+        String a;        a = "Nama Lengkap  : ";
+        String b;        b = "Tanggal Lahir : ";
+        
+        modelMap.addAttribute("inama", a + N);
+        modelMap.addAttribute("itgl", b + T);
+        modelMap.addAttribute("ifoto", F);
         return "main";
     }
-    
 }

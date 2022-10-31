@@ -10,13 +10,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>Data</div>
-        <hr />
-        <form action="/data">
-            Nama Lengkap  : <input type="text" name="varnama"/><br><br>
-            Tanggal Lahir : <input type="date" name="vartgl"/><br><br>
-            Masukkan Foto : <input type="file" name="varfoto"/><br><br>         
-            <input type="submit" value="Submit"/>
-        </form>
+        	<div class="container" style="margin-top: 150px;">
+		<div class="row"
+			style="border: 5px yellowgreen solid; border-radius: 50px; width: 30%; margin: 0 auto; padding: 50px;">
+			<div class="col-sm-12">
+                            <div>Informasi Data</div>
+                            <hr /><br>
+                            <form action="/data" method="post" enctype="multipart/form-data">
+                                Nama Lengkap  : <input type="text" name="varnama" placeholder="Masukkan nama" /><br><br>
+                                Tanggal Lahir : <input type="date" name="vartgl" placeholder="Masukkan Tanggal" /><br><br>
+                                Masukkan Foto : <input type="file" name="varfoto" placeholder="Masukkan foto" /><br><br>         
+                                <input type="submit" value="Submit" />
+                            </form>
     </body>
 </html>

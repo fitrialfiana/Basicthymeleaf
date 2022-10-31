@@ -3,17 +3,29 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Tampil Data</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        
+        <body>
+            <div class="container" style="margin-top: 10px;">
+		<div class="row"
+			style="border: 5px cadetblue solid; border-radius: 50px; width: 40%; margin: 0 auto; padding: 50px;">
+			<div class="col-sm-12">
+                            <p align="center" <div>Informasi Data</div></p>
+                            <hr/><!-- comment -->
+                            <p align="center" th:text="${inama}"></p> 
+                            <p align="center" th:text="${itgl}"></p>
+                            </hr>
+                            <p align="center"><img alt="" th:src="${ifoto}" width="300" height="200" ></p>
+        </body>
     </head>
-    <body>
-        <div>Berikut data anda</div>
-        <hr/><!-- comment -->
-        <p th:text="${inama}"></p> 
-        <p th:text="${itgl}"></p>
-        <!--<p <img src="${ifoto}" alt="alt"/>-->
-    </body>
 </html>
