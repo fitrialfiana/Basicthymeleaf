@@ -4,6 +4,8 @@
  */
 package ws.b.takehome1;
 
+import java.io.IOException;
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,14 +24,18 @@ public class controller {
     public String getData (@RequestParam (value = "varnama") String N,
                         @RequestParam (value = "vartgl") String T,
                         @RequestParam (value = "varfoto") MultipartFile F,
-                        ModelMap modelMap){ 
+                        ModelMap modelMap) throws IOException{ 
+        
+        byte[] masukkanfoto = F.getBytes();
+        String base64image = Base64.encodeBase64String(masukkanfoto);
+        String foto ="data:image/png;base64,".concat(base64image);      
         
         String a;        a = "Nama Lengkap  : ";
         String b;        b = "Tanggal Lahir : ";
         
         modelMap.addAttribute("inama", a + N);
         modelMap.addAttribute("itgl", b + T);
-        modelMap.addAttribute("ifoto", F);
+        modelMap.addAttribute("ifoto", foto);
         return "main";
     }
 }
